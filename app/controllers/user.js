@@ -83,3 +83,21 @@ exports.showSignup = function(req,res){
         title:'注册页面'
     })
 };
+
+// midware for user
+exports.signinRequired = function(req,res,next){
+    var user = req.session.user;
+    if(!user){
+        return res.redirect('/signin');
+    }
+    next();
+};
+
+// midware for user
+exports.adminRequired = function(req,res,next){
+    var user = req.session.user;
+    if(user.role <= 10){
+        return res.redirect('/signin');
+    }
+    next();
+};
