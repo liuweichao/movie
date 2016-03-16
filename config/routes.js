@@ -1,6 +1,7 @@
 var Index = require("../app/controllers/index");
 var User = require("../app/controllers/user");
 var Movie = require("../app/controllers/movie");
+var Comment = require("../app/controllers/Comment");
 
 
 module.exports = function(app){
@@ -29,4 +30,7 @@ module.exports = function(app){
     app.post('/admin/movie/new',User.signinRequired,User.adminRequired,Movie.save);
     app.get('/admin/movie/list',User.signinRequired,User.adminRequired,Movie.list);
     app.delete('/admin/list',User.signinRequired,User.adminRequired,Movie.del);
+
+    //comment
+    app.post('/user/comment',User.signinRequired,Comment.save);
 };

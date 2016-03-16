@@ -17,7 +17,7 @@ exports.list = function(req,res){
 exports.signup = function (req,res) {
     var _user = req.body.user;
 
-    User.find({name: _user.name}, function (err, user) {
+    User.findOne({name: _user.name}, function (err, user) {
         if(err){
             console.log(err);
         }
@@ -29,7 +29,7 @@ exports.signup = function (req,res) {
                 if(err){
                     console.log(err);
                 }
-                res.redirect('/admin/userList')
+                res.redirect('/')
             });
         }
     });
