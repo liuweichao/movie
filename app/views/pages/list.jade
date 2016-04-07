@@ -10,6 +10,7 @@ block content
 						th 国家 
 						th 上映年份
 						th 录入时间
+						th pv
 						th 分类
 						th 查看
 						th 更新
@@ -22,6 +23,7 @@ block content
 							td #{item.country}
 							td #{item.year}
 							td #{moment(item.meta.updateAt).format('YYYY/MM/DD')}
+							td #{item.pv}
 							td #{item.category.name}
 							td: a(target="_blank",href="/movie/#{item._id}") 查看
 							td: a(target="_blank",href="/admin/movie/update/#{item._id}") 修改
