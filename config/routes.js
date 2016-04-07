@@ -26,7 +26,7 @@ module.exports = function(app){
 
     //movie
     app.get('/movie/:id', Movie.detail);
-    app.post('/admin/movie', User.signinRequired, User.adminRequired, Movie.save);
+    app.post('/admin/movie', User.signinRequired, User.adminRequired, Movie.savePoster, Movie.save);
     app.get('/admin/movie/update/:id', User.signinRequired, User.adminRequired, Movie.update);
     app.get('/admin/movie/new', User.signinRequired, User.adminRequired, Movie.new);
     app.get('/admin/movie/list', User.signinRequired, User.adminRequired, Movie.list);

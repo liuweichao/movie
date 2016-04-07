@@ -12,6 +12,7 @@ app.set('views','./app//views/pages');
 app.set('view engine','jade');
 app.use(express.bodyParser());
 app.use(express.cookieParser());
+app.use(express.multipart());
 app.use(express.session({
 	secret:'liu',
 	store:new mongoStroe({
